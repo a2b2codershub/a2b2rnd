@@ -6,7 +6,7 @@ cd "$MY_PATH"
 rm -R -f ../out/release
 
 #Build source
-~/Qt5.2.0/5.2.0/clang_64/bin/qmake VLibrarian.pro -r -spec macx-g++ CONFIG+=release
+~/Qt5.2.0/5.2.0/clang_64/bin/qmake app.pro -r -spec macx-g++ CONFIG+=release
 eval /usr/bin/make -f Makefile clean
 eval /usr/bin/make -f Makefile
 
@@ -19,20 +19,20 @@ cp -f ../Installer/LICENSE.LGPL ../out/release/bin/Vocalist\ Live\ Librarian.app
 
 #install name tool for assigning id
 cd ../out/release/bin/
-~/Qt5.2.0/5.2.0/clang_64/bin/macdeployqt Vocalist\ Live\ Librarian.app
+~/Qt5.2.0/5.2.0/clang_64/bin/macdeployqt app.app
 
 cd ../../../project
 
 sips -i  ../Resources/icon.icns
 DeRez -only icns ../Resources/icon.icns > tmpicns.rsrc
 
-./PackageMaker.app/Contents/MacOS/PackageMaker --doc Vocalist.pmdoc --out ../Installer/MAC/VocalistLiveLibrarian.pkg
-Rez -append tmpicns.rsrc -o ../Installer/MAC/VocalistLiveLibrarian.pkg
-SetFile -a C ../Installer/MAC/VocalistLiveLibrarian.pkg
+./PackageMaker.app/Contents/MacOS/PackageMaker --doc Vocalist.pmdoc --out ../Installer/MAC/app.pkg
+Rez -append tmpicns.rsrc -o ../Installer/MAC/app.pkg
+SetFile -a C ../Installer/MAC/app.pkg
 
-hdiutil create -srcfolder ../Installer/MAC/VocalistLiveLibrarian.pkg -ov ../Installer/MAC/VocalistLiveLibrarian.dmg
-Rez -append tmpicns.rsrc -o ../Installer/MAC/VocalistLiveLibrarian.dmg
-SetFile -a C ../Installer/MAC/VocalistLiveLibrarian.dmg
+hdiutil create -srcfolder ../Installer/MAC/VocalistLiveLibrarian.pkg -ov ../Installer/MAC/app.dmg
+Rez -append tmpicns.rsrc -o ../Installer/MAC/app.dmg
+SetFile -a C ../Installer/MAC/app.dmg
 rm tmpicns.rsrc
 
 exit 0
