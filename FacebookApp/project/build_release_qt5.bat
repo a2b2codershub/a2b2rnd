@@ -7,7 +7,7 @@ set PATH=C:\Qt\Qt5.2.0\5.2.0\mingw48_32\bin;C:\Qt\Qt5.2.0\Tools\mingw48_32\bin;%
 
 RMDIR /s /q ..\out\release
 
-qmake.exe VLibrarian.pro -r -spec win32-g++ "CONFIG+=release"
+qmake.exe app.pro -r -spec win32-g++ "CONFIG+=release"
 mingw32-make.exe clean
 mingw32-make.exe
 
