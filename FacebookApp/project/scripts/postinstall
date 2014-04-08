@@ -1,0 +1,24 @@
+#!/bin/bash
+
+cd ~/
+mkdir DigiTech
+cd DigiTech/
+mkdir Vocalist
+cd Vocalist/
+mkdir "LiveFX"
+mkdir "LiveHarmony"
+cd LiveFX/
+mkdir "Factory Presets"
+mkdir "User Presets"
+cd Factory\ Presets/
+mv -f /tmp/LiveFX/FactoryPresets.dat .
+cd ../../LiveHarmony/
+mkdir "Factory Presets"
+mkdir "User Presets"
+cd Factory\ Presets/
+mv -f /tmp/LiveHM/FactoryPresets.dat .
+
+sudo chmod -R 777 ~/DigiTech
+
+exit 0
+

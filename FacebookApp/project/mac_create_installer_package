@@ -1,0 +1,9 @@
+#!/bin/bash
+
+MY_PATH="`dirname \"$0\"`"
+cd "$MY_PATH"
+
+./PackageMaker.app/Contents/MacOS/PackageMaker --doc Vocalist.pmdoc --out ../Installer/MAC/VocalistLiveLibrarian.pkg
+hdiutil create -srcfolder ../Installer/MAC/VocalistLiveLibrarian.pkg -ov ../Installer/MAC/VocalistLiveLibrarian.dmg
+
+exit 0
