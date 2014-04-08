@@ -3,7 +3,7 @@
 MY_PATH="`dirname \"$0\"`"
 cd "$MY_PATH"
 
-./PackageMaker.app/Contents/MacOS/PackageMaker --doc Vocalist.pmdoc --out ../Installer/MAC/VocalistLiveLibrarian.pkg
-hdiutil create -srcfolder ../Installer/MAC/VocalistLiveLibrarian.pkg -ov ../Installer/MAC/VocalistLiveLibrarian.dmg
+./PackageMaker.app/Contents/MacOS/PackageMaker --doc app.pmdoc --out ../Installer/MAC/app.pkg
+hdiutil create -srcfolder ../Installer/MAC/app.pkg -ov ../Installer/MAC/app.dmg
 
 exit 0
